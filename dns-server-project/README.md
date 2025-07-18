@@ -44,4 +44,18 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
   - Enabled error logs
 - Ensured ownership and permissions were properly set:
   ```bash
-  sudo chown -R www-data:www-data /var/www/yourdomain.com
+  sudo chown -R www-data.www-data /var/www/nestortoscano.com/
+  sudo chmod -R 755 /var/www/nestortoscano.com/
+  ```
+  
+  ### General Tools/Commands Used
+- `named-checkconf` – Validated BIND9 configuration syntax
+- `named-checkzone nestortoscano.com db.nestortoscano.com` – Verified zone file syntax
+- `dig @127.0.0.1 nestortoscano.com` – Tested DNS resolution locally
+- `dig -t ns nestortoscano.com` – Tested DNS resolution publicly
+- `systemctl status bind9` / `systemctl reload apache2` – Checking/Reloading Servers
+- `ufw allow 53`, `ufw allow 80` – Opened necessary firewall ports
+- `curl http://nestotoscano.com` – Verified HTTP response from Apache
+- `vim` – Edited BIND and Apache config files
+- `chown`, `chmod` – Managed file ownership and permissions
+- `a2ensite` / `a2dissite` – Enabled or disabled Apache virtual hosts
