@@ -61,6 +61,15 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 - In mySQL, create and initialize wordpress database, user, and privileges
   - `CREATE DATABASEE wordpress; GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'localh
     ost'; FLUSH PRIVILEGES`
+- Install Wordpress archive and extract/transfer files to website
+  - `wget https://wordpress.org/latest.tar.gz `
+  - `tar -xzvf latest.tar.gz`
+  - `mv /tmp/wordpress/* /var/www/nestortoscano.com/`
+    - make sure to remove all current files in directory first
+  - `chown -R www-data:www-data /var/www/nestortoscano.com/`
+    - making sure all files have create ownership/group
+  - Manually Configure Wordpress website after logging in
+    - 2FA, plugins, etc.
   
   ### General Tools/Commands Used
 - `named-checkconf` – Validated BIND9 configuration syntax
