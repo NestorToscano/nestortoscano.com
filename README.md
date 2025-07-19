@@ -16,6 +16,7 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 - **Ubuntu** – Linux distribution (server environment)
 - **UFW** – Firewall to secure DNS and HTTP ports
 - **Custom Domain (IONOS)** – Purchased separately and configured with glue records
+- **PHP/MYSQL Database/WordPress** TODO
 
 ## My Setup
 ### 1. Digital Ocean VPS
@@ -37,8 +38,8 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
   - `NS` records pointing to custom nameservers
 - Opened port 53 (TCP/UDP) via UFW for external DNS queries.
 
-### 3. Apache2 Web Server Configuration
-- Installed Apache2 on the same droplet.
+### 4. Apache2 Web Server Configuration
+- Installed Apache2 on the VPS.
 - Created a custom virtual host:
   - `ServerName` and `ServerAlias` set to domain
   - Custom `DocumentRoot` with animated landing page
@@ -48,6 +49,12 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
   sudo chown -R www-data.www-data /var/www/nestortoscano.com/
   sudo chmod -R 755 /var/www/nestortoscano.com/
   ```
+- Set up ssl certification to allow secure connections using certbot
+
+### 5. PHP and MySQL Database Configuration
+- Install PHP and the related apache2 and mysql packages necessary
+  - `sudo apt install php libapache2-mod-php php-mysql mysql-server`
+-  TODO Setup mysql server conf
   
   ### General Tools/Commands Used
 - `named-checkconf` – Validated BIND9 configuration syntax
@@ -60,4 +67,4 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 - `vim` – Edited BIND and Apache config files
 - `chown`, `chmod` – Managed file ownership and permissions
 - `a2ensite` / `a2dissite` – Enabled or disabled Apache virtual hosts
-- 'certbot -d nestortocano.com'
+- `certbot -d nestortocano.com`
