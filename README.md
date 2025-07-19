@@ -54,7 +54,13 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 ### 5. PHP and MySQL Database Configuration
 - Install PHP and the related apache2 and mysql packages necessary
   - `sudo apt install php libapache2-mod-php php-mysql mysql-server`
--  TODO Setup mysql server conf
+-  Run Security Script for mySQL (removes certain scripts and unsafe configurations)
+  - `mysql_secure_installation`
+
+### 6. Installing/Securing Web Application (WordPress)
+- In mySQL, create and initialize wordpress database, user, and privileges
+  - `CREATE DATABASEE wordpress; GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'localh
+    ost'; FLUSH PRIVILEGES`
   
   ### General Tools/Commands Used
 - `named-checkconf` – Validated BIND9 configuration syntax
@@ -64,7 +70,8 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 - `systemctl status bind9` / `systemctl reload apache2` – Checking/Reloading Servers
 - `ufw allow 53`, `ufw allow 80` – Opened necessary firewall ports
 - `curl http://nestotoscano.com` – Verified HTTP response from Apache
-- `vim` – Edited BIND and Apache config files
+- `vim` – Edited various files
 - `chown`, `chmod` – Managed file ownership and permissions
 - `a2ensite` / `a2dissite` – Enabled or disabled Apache virtual hosts
-- `certbot -d nestortocano.com`
+- `certbot -d nestortocano.com` - Acquiring SSL Certificate
+
