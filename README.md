@@ -11,7 +11,6 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 ## Tool/Servers Used
 - **BIND9** – DNS server for authoritative zone management
 - **Apache2** – Web server to serve static content
-- **certbot**
 - **DigitalOcean** – VPS hosting provider
 - **Ubuntu** – Linux distribution (server environment)
 - **UFW** – Firewall to secure DNS and HTTP ports
