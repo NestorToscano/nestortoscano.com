@@ -16,7 +16,7 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 - **Ubuntu** – Linux distribution (server environment)
 - **UFW** – Firewall to secure DNS and HTTP ports
 - **Custom Domain (IONOS)** – Purchased separately and configured with glue records
-- **PHP/MYSQL Database/WordPress** TODO
+- **PHP/mySQL/WordPress** - 
 
 ## My Setup
 ### 1. Digital Ocean VPS
