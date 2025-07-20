@@ -4,7 +4,7 @@
 [http://nestortoscano.com](http://nestortoscano.com)
 
 ## Overview
-This project demonstrates how to self-host a fully functional authoritative DNS server using BIND9 and serve a website using Apache2 all hosted from a Digital Ocean Ubuntu Droplet.
+This project demonstrates how to self-host a fully functional authoritative DNS server using BIND9 and serve a website using Apache2 all hosted from a Digital Ocean Ubuntu Droplet and afterwards moved to a Raspberry Pi 4 B.
 
 Instead of relying on third-party DNS providers, I set up custom nameservers (`ns1` and `ns2`) and configured a primary master DNS server to resolve domain names. I also deployed a basic web page over HTTP using Apache2 with custom virtual host settings.
 
@@ -13,10 +13,10 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 ## Tool/Servers Used
 - **BIND9** – DNS server for authoritative zone management
 - **Apache2** – Web server to serve static content
-- **DigitalOcean** – VPS hosting provider
-- **Ubuntu** – Linux distribution (server environment)
+- **DigitalOcean or Raspberry Pi** – Hosting container (VPS or hardware)
+- **Ubuntu** – Linux distribution
 - **UFW** – Firewall to secure DNS and HTTP ports
-- **Custom Domain (IONOS)** – Purchased separately and configured with glue records
+- **Custom Domain (IONOS)** – Purchased separately and configured
 - **PHP and mySQL** - HTML Processing and Database for files
 - **Wordpress** - Content Management System
 
@@ -24,6 +24,7 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 ### 1. Digital Ocean VPS
 - Created a Ubuntu Live Droplet with custom IPV4 address
   - (Possibly soon to integrate an IPV6 address)
+- On Raspbery Pi with Ubuntu, I obtained the static IPV4 address
   
 ### 2. Domain/Nameserver Configuration
 - Registered a domain: `nestortoscano.com` using IONOS
@@ -36,9 +37,10 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 - Installed BIND9 on Ubuntu VPS.
 - Configured it as a primary authoritative DNS server.
 - Created forward zone files with:
-  - `A` records for root, `www`, `ns1`, `ns2`, 'etc'
+  - `A` records for root, `www`, `ns1`, `ns2`, `etc`
   - `NS` records pointing to custom nameservers
 - Opened port 53 (TCP/UDP) via UFW for external DNS queries.
+  - created problems whenever the UFW was not configured properly
 
 ### 4. Apache2 Web Server Configuration
 - Installed Apache2 on the VPS.
@@ -52,6 +54,7 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
   sudo chmod -R 755 /var/www/nestortoscano.com/
   ```
 - Set up ssl certification to allow secure connections using certbot
+  - It was necessary to create a ssl certificate for both www.nestortoscano.com and nestortoscano.com
 
 ### 5. PHP and MySQL Database Configuration
 - Install PHP and the related apache2 and mysql packages necessary
@@ -87,5 +90,5 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 - `certbot -d nestortocano.com` - Acquiring SSL Certificate
 
   ### What is this used for now?
-  - Although I had initially configured this web server to use Wordpress, I       realized I needed the website for non-blogging uses, so I configured the       vps to display my portfolio using custom HTML/CSS. Wordpress was slightly     overkill for my use case, so I found this met my needs much better.
+- Although I had initially configured this web server to use Wordpress, I realized I needed the website for non-blogging uses, so I configured the vps to display my portfolio using custom HTML/CSS. Wordpress was slightly overkill for my use case, so I found this met my needs much better. I also decided to manage the server on a previously used Raspberry Pi 4 B to escape the cost of the VPS.
 
