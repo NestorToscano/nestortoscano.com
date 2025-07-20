@@ -1,0 +1,172 @@
+/* Resets margin and padding for all elements */
+* {
+  margin:0px;
+  padding:0px;
+}
+main#main-content {
+  padding-top: 65px; /* Adjust this value based on your nav bar's actual height */
+}
+
+/* Styling for the navigation bar DESKTOP============================================================VVVVVV*/
+nav {
+  font-family: 'Montserrat', sans-serif;
+  /*make the background black but also slightly backdrop blur */
+  background-color: rgba(16, 16, 16, 0.96);
+  overflow: hidden;
+  text-align: center;
+  z-index: 10; /* Keeps it above everything */
+  position: fixed;
+  width:100%;
+  top: 0; /* Sticks to the top */
+  height: auto;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.211); /* Soft shadow */
+}
+
+/* Removes default list styles and sets margin and padding for navigation list */
+nav ul {
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  list-style-type: none; /* Removes default bullet points */
+}
+
+/* Styling for navigation list items */
+nav ul li {
+  color:#d8d5db;
+  display: inline-block;
+  padding: 10px 15px;
+  line-height: 1;
+  vertical-align: top;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 200;
+}
+
+
+/* Hover effect for navigation list items */
+nav ul li:hover {
+  font-weight: 900;
+}
+
+/*END OF DESKTOP NAV DESIGN============================================================^^^^^*/
+
+/*STYLING FOR THE MOBILE NAVIGATION BAR============================================================VVVVV*/
+/* Hamburger Icon */
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: #d8d5db;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Start off the screen */
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(16, 16, 16, 0.88);
+  -webkit-backdrop-filter: blur(10px); /* Add this line first, it fixes blur for Safari*/
+   backdrop-filter: blur(10px);  /* This line activates blur*/
+  
+  transition: right 0.3s ease-out;
+  z-index: 19;
+  display: flex;
+  flex-direction: column;
+  padding-top: 45px; /* Adjust based on your nav height */
+}
+
+.mobile-menu a {
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+  color: #d8d5db;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+  font-size: 20px;
+}
+
+.nav-logo{
+/*make sure size is good for logo in the nav bar.*/
+  width: 30px;
+}
+
+.desktop-menu {
+  display: flex;
+  align-items: center; /* This ensures all items in the menu are vertically centered */
+  justify-content: center; /* Center menu items horizontally if needed */
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.desktop-menu a {
+  display: flex;
+  align-items: center; /* Aligns the text and logo vertically */
+  text-decoration: none;
+  color: #d8d5db;
+  padding: 10px 15px;
+}
+
+.desktop-menu li {
+  font-family: 'Montserrat', sans-serif;
+  /* Rest of properties remain the same */
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top:5px;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 20; /* Ensures the icon is clickable and above other content */
+  margin-right: 10px;
+}
+
+.line {
+  background-color: #d8d5db;
+  height: 3px;
+  width: 100%;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition for the animation */
+}
+
+/* Adjustments for transforming lines into X with perfect intersection */
+.menu-icon.open .line1 {
+  transform: translateY(1px) rotate(45deg); /* Adjust translateY value for perfect intersection */
+}
+
+.menu-icon.open .line2 {
+  transform: translateY(-9px) rotate(-45deg); /* Adjust translateY value for perfect intersection */
+}
+/*END OF MOBILE NAVIGATION BAR STYLING============================================================^^^^^*/
+
+/* Adjusting visibility on smaller screens */
+@media (max-width: 768px) {
+  nav{
+    padding: 6px; /*makes the mobile nav bar a little bigger*/
+  }
+  .mobile-menu a{
+    /*make font slightly smaller*/
+    font-size: 1.2em;
+  }
+  .hamburger-icon {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    z-index: 20; /* Ensure it's higher than the mobile-menu's z-index */
+    position: relative; /* z-index works on positioned elements (position:absolute, position:relative, or position:fixed) */
+  }
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu.hidden {
+    display: flex;
+  }
+  .nav-logo{
+    margin-left:10px;
+  }
+}

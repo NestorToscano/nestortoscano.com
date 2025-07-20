@@ -1,0 +1,68 @@
+/* Resets margin and padding for all elements */
+* {
+  margin:0px;
+  padding:0px;
+}
+
+/* Styling for the profile section */
+.about-me{
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgb(24, 24, 24)),
+  url(../banner.jpeg);
+  background-size: cover;
+  background-position: center;
+
+  color:#d8d5db;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.headshot{
+  border-radius: 50%; /* Makes the image round */
+  width: 200px;
+  height: 217px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  margin-top: 30px;
+}
+
+/* Add gradient animation for the name */
+.gradient-name {
+  font-size: 3em; /* Increased size since it's no longer in a container */
+  font-weight: 700;
+  margin: 1rem auto 10px auto; /* this is margin for first top, right, bottom, left.*/
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(to right, #c364FA, #190087, #6b00d7);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(123, 67, 151, 0.3);
+  letter-spacing: 2px;
+  animation: gradient 3s radial infinite;
+}
+
+@keyframes gradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Small screens (phones)*/
+@media (max-width: 600px) {
+  /*all h1 needs to be smaller on phones*/
+  h1{
+    font-size: 2.5em !important;
+  }
+  /*make headshot smaller*/
+  .headshot{
+    width: 160px;
+    height: 170px;
+  }
+  .typewriter h1{
+    /*make it important*/
+    font-size: 30px !important;
+  }
+}

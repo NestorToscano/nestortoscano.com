@@ -1,0 +1,136 @@
+/* Custom styles replacing Tailwind utility classes */
+body {
+  background-color: #101010;
+  color: #F5F5F7; /* Moved color here for broader application */
+}
+.projects-section {
+  padding: 3rem 1rem;
+}
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.top-page-title{
+  font-size: 5rem;
+  font-weight: normal;
+  color: #F5F5F7;
+}
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem;
+}
+.project-card {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.card-content {
+  background-color: #333335;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem; /* Ensure there's padding around the content */
+}
+.card-image {
+  width: calc(100% - 2rem); /* Adjust width to be less than 100% */
+  height: 300px;
+  object-fit: cover;
+  /*now center the image*/
+  margin: 1rem;
+  display: block;
+  border-radius: 0.5rem;
+}
+.card-text {
+  padding: 1.5rem;
+}
+.card-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #F5F5F7;
+}
+.card-description {
+  color: #b3b3b3; /* Adjusted for better contrast */
+  margin-bottom: 1rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: flex-start; /* Changed from center to flex-start */
+}
+
+.skill {
+  background-color: #f3f3f3;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.skill:hover {
+  background-color: #ddd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.skill i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  /*make things smaller, less crammed, and easier to read*/
+  .card-title {
+    font-size: 1.5rem;
+  }
+  .card-description {
+    font-size: 1rem;
+  }
+  .skill {
+    font-size: 0.75rem;
+  }
+  .card-text {
+    padding: 1rem;
+  }
+  .card-image {
+    height: 200px;
+  }
+  .top-page-title{
+    font-size: 3.2rem;
+  }
+  .section-header {
+    margin-top: 1.5rem; /*fixed the glitch where in phone mode, nav menu cropped a little of top*/
+    margin-bottom: 1.5rem;
+  }
+  .projects-section {
+    padding: 2rem 2rem;
+  }
+  /*remove exxon logo*/
+
+}
+
+@media (min-width: 768px) {
+  .project-card {
+    width: 50%; /* 2 cards per row for medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-card {
+    width: 33.333%; /* 3 cards per row for larger screens */
+  }
+}

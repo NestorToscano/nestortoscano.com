@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education - Nestor Toscano</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/nav.css">
+  <link rel="stylesheet" href="seprate-exp.css"> <!-- Link to the external CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/contact.css"> <!--for the contact icons i added-->
+  <link rel="stylesheet" href="scroll_progress/scroll_progress.css"> <!-- Link to the scroll progress CSS file -->
+
+  <link rel="icon" type="image/x-icon" href="header/kh_logo.png">
+  
+  <!-- Add after the existing font imports -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<!-- Global Styles: Apply the monospace font all over -->
+<style>
+  .top-page-title{
+    margin-top:40px;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  nav, 
+  .mobile-menu,
+  .desktop-menu,
+  footer,
+  .footer-content,
+  .footer-links,
+  .useless-button {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, 
+  .section-title, 
+  .skill {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  p, li {
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
+
+<body>
+  <!--this is a progress bar for scrolling-->
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>
+
+  <nav id="nav">
+      <!-- Hamburger Menu Icon for Mobile -->
+    <div class="hamburger-icon"> 
+        <a href="index.html#home">
+            <img src="header/nt_logo.png" alt="Nestor Toscano Logo" class="nav-logo">
+        </a>
+        <!-- Menu Icon -->
+        <div class="menu-icon onclick="toggleMenu()"> <!--calls toggle menu in js when clicked.-->
+            <span class="line line1"></span> <!-- Top line of = that will become part of X -->
+            <span class="line line2"></span> <!-- Bottom line of = that will become part of X -->
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    <!-- Desktop nav menu-->
+    <ul class="desktop-menu">
+        <a href="index.html#home"><li> <img src="header/nt_logo.png" alt="Nestor Toscano Logo" class="nav-logo"> </li></a>
+        <a href="index.html#home"><li>Home</li></a>
+        <a href="index.html#experience"><li>Experience</li></a>
+        <a href="index.html#projects"><li>Projects</li></a>
+        <a href="index.html#contact"><li>Contact</li></a>
+    </ul>
+  </nav>
+  <!-- Project Section -->
+  <section class="projects-section">
+    <div class="container">
+      <header class="section-header">
+        <h1 class="top-page-title">Education & Experience</h1>
+      </header>
+      <div class="projects-grid">
+        <!-- Project Template -->
+        <!--PROJECT3-->
+        <div class="project-card" id="tamuelen">
+          <div class="card-content">
+            <img class="card-image" src="experience/tamu.png" alt="Project Thumbnail" />
+            <div class="card-text">
+              <h2 class="card-title">Peer Teacher</h2>
+              <p class="card-description">
+                <i>Fall 2025</i> <br><br>
+                dafafdafdaf <br><br>
+                adsasdfadsfadf <br><br>
+                <strong>Relevant notes:</strong>
+                <br>1<br>
+                2<br>
+                3<br>
+                4<br>
+                ...etc!
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--PROJECT4-->
+        <div class="project-card" id="tamucs">
+          <div class="card-content">
+            <img class="card-image" src="experience/tamu.png" alt="Project Thumbnail" />
+            <div class="card-text">
+              <h2 class="card-title">Major in Computer Engineering at Texas A&M University</h2>
+              <p class="card-description">
+                <strong>Currently a Junior with a 4.0 GPA</strong><br><br>
+                I gained a comprehensive understanding of both the software and hardware aspects of technology.  <br><br>
+                This makes me a well-rounded engineer capable of not only designing electrical components but creating the software to utilize them <br><br>
+                <strong>Relevant coursework:</strong>
+                <br>Data Structures and Algorithms<br>
+                Computer Architecture & Design<br>
+                Digital Systems Design<br>
+                Discrete Structures for Computing
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="skills">
+        <a href="index.html" class="skill">
+          <i class="fas fa-home"></i>
+          <span>Return Home</span>
+        </a>
+      </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <a href="experience.html#home">
+        <img src="header/nt_logo.png" alt="Nestor Toscano Logo" class="footer-logo" loading="lazy">
+      </a>
+      <div class="footer-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <p>&copy; 2025 Nestor Toscano</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script> <!-- Link to the nav -->
+  <script src="scroll_progress/scroll_progress.js"></script> <!-- Link to the scroll progress JS file -->
+</body>
+</html>
