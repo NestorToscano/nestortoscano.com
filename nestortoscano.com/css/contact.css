@@ -48,8 +48,8 @@
   color: #0077b5; /* LinkedIn icon hover color */
 }
 
-.contact-icon:hover i.fa-Resume {
-  color: #b2071d; /* Resume icon hover color */
+.contact-icon:hover i.fa-briefcase {
+  color: #6d6bed; /* Resume icon hover color */
 }
 
 
