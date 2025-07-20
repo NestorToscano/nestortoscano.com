@@ -8,6 +8,8 @@ This project demonstrates how to self-host a fully functional authoritative DNS 
 
 Instead of relying on third-party DNS providers, I set up custom nameservers (`ns1` and `ns2`) and configured a primary master DNS server to resolve domain names. I also deployed a basic web page over HTTP using Apache2 with custom virtual host settings.
 
+Additionally, I installed PHP to handle WordPress's dynamic website functionality, and I installed mySQL as its database for content/configuration files. Finally, I installed WordPress on the same server and manually configured the admin settings. Overall, I was able to demonstrate full-stack hosting capabilities, from DNS to dynamic content delivery.
+
 ## Tool/Servers Used
 - **BIND9** – DNS server for authoritative zone management
 - **Apache2** – Web server to serve static content
@@ -15,7 +17,8 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 - **Ubuntu** – Linux distribution (server environment)
 - **UFW** – Firewall to secure DNS and HTTP ports
 - **Custom Domain (IONOS)** – Purchased separately and configured with glue records
-- **PHP/mySQL/WordPress** - 
+- **PHP and mySQL** - HTML Processing and Database for files
+- **Wordpress** - Content Management System
 
 ## My Setup
 ### 1. Digital Ocean VPS
@@ -82,4 +85,7 @@ Instead of relying on third-party DNS providers, I set up custom nameservers (`n
 - `chown`, `chmod` – Managed file ownership and permissions
 - `a2ensite` / `a2dissite` – Enabled or disabled Apache virtual hosts
 - `certbot -d nestortocano.com` - Acquiring SSL Certificate
+
+  ### What is this used for now?
+  - Although I had initially configured this web server to use Wordpress, I       realized I needed the website for non-blogging uses, so I configured the       vps to display my portfolio using custom HTML/CSS. Wordpress was slightly     overkill for my use case, so I found this met my needs much better.
 
