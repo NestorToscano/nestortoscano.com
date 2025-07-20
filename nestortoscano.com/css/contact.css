@@ -48,9 +48,11 @@
   color: #0077b5; /* LinkedIn icon hover color */
 }
 
-.contact-icon:hover i.fa-youtube {
-  color: #b2071d; /* YouTube icon hover color */
+.contact-icon:hover i.fa-Resume {
+  color: #b2071d; /* Resume icon hover color */
 }
+
+
 
 /* Small screens (phones)*/
 @media (max-width: 600px) {
