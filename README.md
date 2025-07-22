@@ -63,6 +63,7 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
   sudo chown root:root /etc/ssl/certs/nestortoscano.crt
   sudo chmod 644 /etc/ssl/certs/nestortoscano.crt
   ```
+- To create symbolic links/activate the website from site
 
 ### 5. PHP and MySQL Database Configuration
 - Install PHP and the related apache2 and mysql packages necessary
