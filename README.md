@@ -1,7 +1,7 @@
 # Self-Hosted DNS and Web Server Project
 
 ## Live Demo
-[nestortoscano.com](nestortoscano.com)
+[https://nestortoscano.com](https://nestortoscano.com)
 
 ## Overview
 This project demonstrates how to self-host a fully functional authoritative DNS server using BIND9 and serve a website using Apache2 all hosted from a Digital Ocean Ubuntu Droplet and afterwards moved to a Raspberry Pi 4 B.
