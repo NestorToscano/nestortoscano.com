@@ -24,7 +24,7 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 ### 1. Digital Ocean VPS
 - Created a Ubuntu Live Droplet with custom IPV4 address
   - (Possibly soon to integrate an IPV6 address)
-- On Raspbery Pi with Ubuntu, I obtained the static IPV4 address
+- On Raspbery Pi with Ubuntu, I obtained the public IPV4 address then forwarded the ports (80/443) on the router to its private IP.
   
 ### 2. Domain/Nameserver Configuration
 - Registered a domain: `nestortoscano.com` using IONOS
@@ -32,6 +32,7 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
   - `ns1.nestortoscano.com → <159.89.80.36>`  
   - `ns2.nestortoscano.com → <167.172.0.13>` (necessary to create a reserved IP)
 - Configured glue records and pointed the domain to these nameservers at the registrar.
+- On the Pi, I left the default nameservers and simply configured the glue records to the public IP address (@ and www)
   
 ### 3. BIND9 DNS Server Configuration
 - Installed BIND9 on Ubuntu VPS.
@@ -41,12 +42,12 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
   - `NS` records pointing to custom nameservers
 - Opened port 53 (TCP/UDP) via UFW for external DNS queries.
   - created problems whenever the UFW was not configured properly
+- Note: I did not apply BIND9 on the Pi
 
 ### 4. Apache2 Web Server Configuration
 - Installed Apache2 on the VPS.
-- Created a custom virtual host:
-  - `ServerName` and `ServerAlias` set to domain
-  - Custom `DocumentRoot` with animated landing page
+- Created a custom virtual host (nestortoscano.com.conf):
+  - `ServerName`, `DocumentRoot`, and `ServerAlias` set to domain
   - Enabled error logs
 - Ensured ownership and permissions were properly set:
   ```bash
@@ -55,6 +56,13 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
   ```
 - Set up ssl certification to allow secure connections using certbot
   - It was necessary to create a ssl certificate for both www.nestortoscano.com and nestortoscano.com
+- On the Pi, I downloaded the .key and .cer files from IONOS and made sure they were only readable by apache2
+  ```bash
+  sudo mv _.nestortoscano.com_private_key.key /etc/ssl/private/nestortoscano.key
+  sudo mv nestortoscano.com.crt /etc/ssl/certs/nestortoscano.crt
+  sudo chown root:root /etc/ssl/certs/nestortoscano.crt
+  sudo chmod 644 /etc/ssl/certs/nestortoscano.crt
+  ```
 
 ### 5. PHP and MySQL Database Configuration
 - Install PHP and the related apache2 and mysql packages necessary
@@ -82,11 +90,10 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 - `dig @127.0.0.1 nestortoscano.com` – Tested DNS resolution locally
 - `dig -t ns nestortoscano.com` – Tested DNS resolution publicly
 - `systemctl status bind9` / `systemctl reload apache2` – Checking/Reloading Servers
-- `ufw allow 53`, `ufw allow 80` – Opened necessary firewall ports
+- `ufw allow 53`, `ufw allow 80`, – Opened necessary firewall ports
 - `curl http://nestotoscano.com` – Verified HTTP response from Apache
 - `vim` – Edited various files
 - `chown`, `chmod` – Managed file ownership and permissions
-- `a2ensite` / `a2dissite` – Enabled or disabled Apache virtual hosts
 - `certbot -d nestortocano.com` - Acquiring SSL Certificate
 
   ### What is this used for now?
