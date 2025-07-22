@@ -12,7 +12,7 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 
 ## Tool/Servers Used
 - **BIND9** – DNS server for authoritative zone management
-- **Apache2** – Web server to serve static content
+- **Apache2** – Web server to serve static content (html)
 - **DigitalOcean or Raspberry Pi** – Hosting container (VPS or hardware)
 - **Ubuntu** – Linux distribution
 - **UFW** – Firewall to secure DNS and HTTP ports
@@ -32,7 +32,7 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
   - `ns1.nestortoscano.com → <159.89.80.36>`  
   - `ns2.nestortoscano.com → <167.172.0.13>` (necessary to create a reserved IP)
 - Configured glue records and pointed the domain to these nameservers at the registrar.
-- On the Pi, I left the default nameservers and simply configured the glue records to the public IP address (@ and www)
+- On the Pi, I left the default nameservers and simply configured the glue records to the pi's public IP address (@ and www)
   
 ### 3. BIND9 DNS Server Configuration
 - Installed BIND9 on Ubuntu VPS.
@@ -56,22 +56,28 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
   ```
 - Set up ssl certification to allow secure connections using certbot
   - It was necessary to create a ssl certificate for both www.nestortoscano.com and nestortoscano.com
-- On the Pi, I downloaded the .key and .cer files from IONOS and made sure they were only readable by apache2
+- On the Pi, I downloaded the .key and .cer files from IONOS and made sure they were only readable by apache2 (nestortoscano.com-ssl.conf)
   ```bash
   sudo mv _.nestortoscano.com_private_key.key /etc/ssl/private/nestortoscano.key
   sudo mv nestortoscano.com.crt /etc/ssl/certs/nestortoscano.crt
   sudo chown root:root /etc/ssl/certs/nestortoscano.crt
   sudo chmod 644 /etc/ssl/certs/nestortoscano.crt
   ```
-- To create symbolic links/activate the website from site
+- Finally I created the symbolic links for the website from sites-available to sites-enabled
+  ```bash
+  sudo a2enmod ssl
+  sudo a2ensite nestortoscano-ssl.conf
+  sudo a2ensite nestortoscano.com.conf
+  sudo systemctl reload apache2
+  ```
 
-### 5. PHP and MySQL Database Configuration
+### 5. PHP and MySQL Database Configuration (optional)
 - Install PHP and the related apache2 and mysql packages necessary
   - `sudo apt install php libapache2-mod-php php-mysql mysql-server`
 -  Run Security Script for mySQL (removes certain scripts and unsafe configurations)
   - `mysql_secure_installation`
 
-### 6. Installing/Securing Web Application (WordPress)
+### 6. Installing/Securing Web Application (WordPress) (optional)
 - In mySQL, create and initialize wordpress database, user, and privileges
   - `CREATE DATABASEE wordpress; GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'localh
     ost'; FLUSH PRIVILEGES`
@@ -98,5 +104,5 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 - `certbot -d nestortocano.com` - Acquiring SSL Certificate
 
   ### What is this used for now?
-- Although I had initially configured this web server to use Wordpress, I realized I needed the website for non-blogging uses, so I configured the vps to display my portfolio using custom HTML/CSS. Wordpress was slightly overkill for my use case, so I found this met my needs much better. I also decided to manage the server on a previously used Raspberry Pi 4 B to escape the cost of the VPS.
+- Although I had initially configured this web server to use Wordpress, I realized I needed the website for non-blogging uses, so I configured the vps to display my portfolio using custom made HTML/CSS. Wordpress was slightly overkill for my use case, so I found this met my needs much better. I also decided to migrate the server to a previously used Raspberry Pi 4 B to have complete control over my server and loosen up on costs. It was a learning experience to migrate the server to a different system, and I definitely do not regret it!
 
