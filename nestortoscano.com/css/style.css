@@ -115,23 +115,3 @@ footer {
     right: -8px;
   }
 }
-
-.useless-button {
-  margin-top: 15px;
-  padding: 8px 16px;
-  background-color: #333;
-  color: #F5F5F7;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.useless-button:hover {
-  background-color: #444;
-  transform: scale(1.05);
-}
-
-.useless-button:active {
-  transform: scale(0.95);
-}
