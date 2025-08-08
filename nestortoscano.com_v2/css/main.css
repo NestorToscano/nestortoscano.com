@@ -1,0 +1,146 @@
+/* ---- HERO ---- */
+main .hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5rem 6rem;
+  gap: 70px;
+}
+main .hero-section .headshot {
+  height: 250px;
+  border-radius: 50%;
+}
+main .hero-section .about-me {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+main .hero-section .about-me .cells{
+  padding-top: 20px;
+}
+main .hero-section .about-me .cells .cell{
+  display: inline-block;
+  padding: 8px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  background-color: rgba(166, 0, 255, 0.777);
+  border-radius: 50%;
+  transition: .3s ease, transform .2s ease, filter 0.2s ease;
+}
+main .hero-section .about-me .cells .cell:hover {
+  background-color: rgb(166, 0, 255);
+  color:rgb(166, 0, 255);
+  transform: scale(1.2);
+}
+main .hero-section .about-me .cells .cell:active {
+  filter: brightness(75%);
+  transform: scale(1.3)
+}
+.fa-solid, .fa-brands {
+  font-size: 1.5rem;
+}
+
+/* ---- Education/Experience ---- */
+main .title-separator {
+  display: flex;
+  margin: 1.5rem 6rem;
+  font-size:xx-large;
+}
+main .info-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 2.5rem 6rem;
+  background-color: rgb(3, 0, 0);
+}
+main .info-section .tamu {
+  width: 250px;
+  padding-top: 20px;
+}
+main .info-section .info-section-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+main .info-section .subtitle {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ---- SKILLS ---- */
+#Skills-title {
+  justify-content:  center;
+}
+main .Skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+main .Skills .skills-container {
+  margin: 1rem 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  justify-content: center;
+  gap: 12px;
+}
+main .Skills .skills-container .skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: rgb(166, 0, 255);
+  border-radius: 7px;
+  gap: 5px;
+  transition: .3s ease, transform .2s ease, filter .2s ease;
+}
+
+main .Skills .skills-container .skill:hover {
+  transform: scale(1.075);
+  /* margin: 4px 15px; */
+}
+
+/* ---- PROJECTS ---- */
+
+.Projects {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  margin: 2.5rem 6rem;
+  gap: 20px;
+  justify-content: center;
+}
+
+.Projects .project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(20, 20, 20);
+  width: 350px;
+  padding: 30px 20px 30px 20px;
+  gap: 30px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.Projects .project-container img {
+  border-radius: 8px;
+}
+.Projects .project-container .vps {
+  width: 250px;
+}
+.Projects .project-container .spotipy {
+  width: 200px;
+}
+.Projects .project-container .elec {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
