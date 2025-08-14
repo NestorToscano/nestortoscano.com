@@ -24,7 +24,7 @@ Additionally, I installed PHP to handle WordPress's dynamic website functionalit
 ### 1. Digital Ocean VPS
 - Created a Ubuntu Live Droplet with custom IPV4 address
   - (Possibly soon to integrate an IPV6 address)
-- On Raspbery Pi with Ubuntu, I obtained the public IPV4 address then forwarded the ports (80/443) on the router to its private IP.
+- On Raspbery Pi with Ubuntu, I obtained the public IPV4 address of my router then forwarded the ports (80/443) on the router to the Pi's private IP.
   
 ### 2. Domain/Nameserver Configuration
 - Registered a domain: `nestortoscano.com` using IONOS
