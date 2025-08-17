@@ -19,6 +19,7 @@ main .hero-section .about-me .cells{
   padding-top: 20px;
 }
 main .hero-section .about-me .cells .cell{
+  cursor: pointer;
   display: inline-block;
   padding: 8px;
   margin-right: 15px;
@@ -87,11 +88,12 @@ main .Skills .skills-container {
   margin: 1rem 5rem;
   display: flex;
   flex-wrap: wrap;
-  flex-grow: 0;
   justify-content: center;
   gap: 12px;
 }
 main .Skills .skills-container .skill {
+  cursor: pointer;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
