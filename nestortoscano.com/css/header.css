@@ -61,6 +61,7 @@ header nav .mobile-menu .menu-toggle {
   color: white;
   transition: .15s;
 } 
+
 header nav .mobile-menu .menu-toggle:hover {
   color: rgb(197, 118, 240);
   transform: scale(1.1);
@@ -71,35 +72,39 @@ header nav .mobile-menu .menu-toggle:active {
 } 
 
 header nav .mobile-menu ul {
-  display: flex;
+  display: none;
   list-style: none;
   flex-direction: column;
   position: absolute;
   top: 5rem;
   right: 1.5rem;
-  opacity: 0;
-  transition: opacity 0.2s ease;
 
   background-color: rgba(16, 16, 16, 0.724);
-  -webkit-backdrop-filter: blur(10px); /* Add this line first, it fixes blur for Safari*/
-    backdrop-filter: blur(10px);  /* This line activates blur*/
+  -webkit-backdrop-filter: blur(10px); 
+    backdrop-filter: blur(10px);  
   border-radius: 7px;
 
   justify-content: center;
   align-items: center;
 
   font-size-adjust: .60;
-  z-index: 100;
 }
 
-header nav.active .mobile-menu ul {
-  opacity: 1;
-}
+/* header nav.active .mobile-menu ul {
+  display: flex;
+} */
+
 header nav .mobile-menu ul li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   width: 100%;
-  padding: 1rem 1.5rem 1rem 1.5rem;
   transition: .2s;
+}
+header nav .mobile-menu ul li a {
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  flex: 1;
 }
 header nav .mobile-menu ul li:hover{
   border-radius: 5px;
