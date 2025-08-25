@@ -64,3 +64,22 @@
 
   }
 }
+/* EXTRA */
+
+@media (hover: hover) { /* Hovering effects only for devices that support hover */
+  header nav .desktop-menu ul li a:hover {
+    text-decoration-line: underline;
+    text-underline-offset: 4px; 
+    text-decoration-thickness: 1px;
+    color: rgb(197, 118, 240);
+    transform: scale(1.2);
+  }
+  header nav .mobile-menu .menu-toggle:hover {
+    color: rgb(197, 118, 240);
+    transform: scale(1.1);
+  } 
+  header nav .mobile-menu ul li:hover{
+    border-radius: 5px;
+    background-color: rgba(37, 36, 36, 0.571);
+  }
+}
