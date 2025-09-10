@@ -146,3 +146,7 @@ main .Skills .skills-container .skill:hover {
   height: 200px;
   object-fit: cover;
 }
+
+.Projects .project-container .vm {
+  width: 300px;
+}
